@@ -1,0 +1,82 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+
+/**
+ * INBOX
+ */
+.inbox_div {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	clear: both;
+}
+
+.inbox_thumbnail {
+	float: left;
+	position: relative;
+	width: 10em;
+	height: 10em;
+}
+
+.inbox_thumbnail_container {
+	float: right;
+	position: relative
+}
+
+.inbox_checkbox {
+	float: right;
+	position: relative;
+	padding-top: 4em;
+	padding-right: 1em
+}
+
+.inbox_content_div {
+	float: right;
+	position: relative;
+	width: 47em;
+	padding-top:1em;
+}
+
+.inbox_clear_div {
+	clear: both;
+	width: 100%
+}
+
+.inbox_data_div {
+	width: 100%;
+	padding-top: 0.5em;
+}
+
+.inbox_menu_div {
+	clear: both;
+	width: 50em;
+	padding-top: 0.5em;
+}
+
+.inbox_modem_pages {
+	float: right;
+	position: relative;
+	width: 17em;
+	text-align:left
+}
+
+.inbox_from_date {
+	float: left;
+	position: relative;
+	text-align: left
+}
+
+.inbox_item {
+	display: block;
+	float: left;
+	position: relative;
+	width: 5em;
+}

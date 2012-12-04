@@ -1,0 +1,250 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * ADMIN CSS
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #FFFFFF;
+	border: none;
+	margin: auto;
+}
+
+body {
+	margin: auto;
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+/**
+ * CONTENT
+ */
+#content {
+	clear:both;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top: 1em;
+}
+
+/**
+ * MENU
+ */
+
+.admin-menu {
+	float: left;
+	position:relative
+}
+
+#menu {
+	width: 90em;
+	margin-right: auto;
+	margin-left:auto;
+	padding-top: 1em;
+}
+
+.admin-selectmenu {
+	padding-left: 2em;
+	padding-top: 0.5em;
+	float:left;
+	position:relative;
+}
+
+.admin-selectmenu select {
+	font-size: 1.1em;
+}
+
+.admin-username {
+	float: right;
+	position:relative;
+}
+
+/*
+ * FOOTER
+ */
+#footer {
+	clear:both;
+	margin-left:auto;
+	margin-right:auto;
+	width: 10em;
+	padding-top: 2em;
+}
+
+/**
+ * MAIN CONTENT
+ */
+
+#main-content {
+	margin-left:auto;
+	margin-right:auto;
+	width:70em;
+	padding-top: 2em;
+}
+
+#main-content-left {
+	float: left;
+	position: relative;
+	width: 20em;
+	margin-right: 1em
+}
+
+#main-content-right {
+	float: left;
+	position: relative;
+	width: 30em
+}
+
+#main-content a {
+	font-size: 1.0em;
+}
+
+img {
+	border: 0;
+}
+
+li {
+	margin-left: 1em;
+	list-style-position:inside;
+}
+
+ul {
+	margin-left: 1em;
+}
+
+h1 {
+	color: #FF9900;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.1em;
+}
+
+th {
+	color: #000099;
+	font-size:1.2em;
+	font-family: Helvetica, sans-serif;
+}
+
+p, td {
+	font-family: Helvetica, sans-serif;
+}
+
+a {
+	font-family: Helvetica, sans-serif;
+	font-size:1.0em;
+	color:#000099;
+}
+
+a:hover {
+	font-style:italic;
+	color: #FF9900;
+	border:#33CCFF;
+}
+
+a.forgot:hover {
+	color: #0000FF;
+	text-decoration:underline;
+	font-style:normal
+}
+
+.logtext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-size: 1.0em;
+}
+
+.logdate {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+}
+
+/**
+ * Feature explaination
+ */
+
+#explain-me {
+	clear: both;
+	padding: 1em;
+	border: 1px  #FFCC99 solid;
+	vertical-align: middle;
+}
+
+/**
+ * tableForm
+ */
+
+.tableForm {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60em;
+}
+
+.tableForm label {
+	width: 15em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+.tableForm p {
+	margin-bottom: 0.3em;
+	margin-top: 0.4em;
+}
+
+.tableForm fieldset {
+	width: 70%;
+}
+
+.tableForm legend {
+	color:#000000;
+	font-style:normal
+}
+
+/*
+ *
+ */
+
+.miniTableForm {
+	width: 35em;
+}
+
+.miniTableForm label {
+	width: 10em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+.miniTableForm p {
+	margin-bottom: 0.3em;
+	margin-top: 0.4em;
+	clear:both
+}
+
+.miniTableForm legend {
+	color:#000000;
+	font-style:normal
+}
+
+.miniTableForm legend {
+	color:#000000;
+	font-style:normal
+}
+
+.miniTableForm input {
+	width:15em;
+}

@@ -1,0 +1,46 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * INTERFACE CSS
+ */
+
+@import url(css/header.css);
+@import url(css/viewfax.css);
+@import url(css/inbox.css);
+@import url(css/tables.css);
+@import url(css/archive.css);
+@import url(css/common.css);
+@import url(css/forms.css);
+@import url(css/dialogs.css);
+@import url(css/sendfax.css);
+
+
+/**
+ * Round borders
+ */
+
+.ot90	{background: url(images/odot.gif) 0 0 repeat-x; width: 90em;}
+.ot85	{background: url(images/odot.gif) 0 0 repeat-x; width: 85em;}
+.ot80	{background: url(images/odot.gif) 0 0 repeat-x; width: 80em;}
+.ot70	{background: url(images/odot.gif) 0 0 repeat-x; width: 70em;}
+.ot65	{background: url(images/odot.gif) 0 0 repeat-x; width: 65em;}
+.ot60	{background: url(images/odot.gif) 0 0 repeat-x; width: 60em;}
+.ot50	{background: url(images/odot.gif) 0 0 repeat-x; width: 50em;}
+.ot40	{background: url(images/odot.gif) 0 0 repeat-x; width: 40em;}
+.ot30	{background: url(images/odot.gif) 0 0 repeat-x; width: 30em;}
+.ob		{background: url(images/odot.gif) 0 100% repeat-x}
+.ol		{background: url(images/odot.gif) 0 0 repeat-y}
+.or		{background: url(images/odot.gif) 100% 0 repeat-y}
+.obl	{background: url(images/obl.gif) 0 100% no-repeat}
+.obr	{background: url(images/obr.gif) 100% 100% no-repeat}
+.otl	{background: url(images/otl.gif) 0 0 no-repeat}
+.otr	{background: url(images/otr.gif) 100% 0 no-repeat; padding:0.5em}

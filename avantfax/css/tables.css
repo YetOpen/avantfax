@@ -1,0 +1,110 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * TABLES
+ */
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
+table { border: none }
+
+
+/**
+ * tableForm
+ */
+
+.tableForm {
+	font-style: normal
+}
+
+.tableForm label {
+	width: 15em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+.tableForm input {
+	float: left;
+	text-align: left;
+}
+
+.tableForm textarea {
+	float: left;
+	text-align: left;
+}
+
+.tableForm p {
+	margin-bottom: 0.3em;
+	margin-top: 0.4em;
+	clear: both;
+	padding: 0.1em;
+}
+
+.tableFormRight {
+	width: 35em;
+	float: left;
+	position: relative;
+	text-align: left;
+	vertical-align: top
+}
+
+.tableFormRight input {
+	float: none;
+	text-align: inherit;
+}
+
+.tableForm small {
+	font-size: 1.0em
+}
+
+/*
+ *
+ */
+
+.miniTableForm {
+	/*margin-left: auto;
+	margin-right: auto;*/
+	width: 40em;
+}
+
+.miniTableForm label {
+	width: 10em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+.miniTableForm p {
+	margin-bottom: 0.3em;
+	margin-top: 0.4em;
+	clear: both
+}
+
+.miniTableForm legend {
+	color: #000000;
+	font-style: normal
+}
+
+.miniTableForm legend {
+	color: #000000;
+	font-style: normal
+}
+
+.miniTableForm input {
+	width: 15em;
+}

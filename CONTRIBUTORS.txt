@@ -1,0 +1,34 @@
+AvantFAX has had many languages files and bug fixes contributed by many people including the following:
+
+Yuan Chia Fu
+Faidon Liambotis
+Rémi TAUPIN
+Constantin Andrita
+Koos van Marion
+Roberto Romero
+Sergio Delgado
+Alejandro Ortega
+Eivind Raknes
+Hong Yuan
+Andreas Wettergren
+Mike M. Shirshov
+Andreas Wettergren
+Zambo Daniel
+Istvan Toth
+Frank Menne
+Jakub Karolczyk
+Gokhan Toplar
+Yacine Fetouche
+Chris Weiss
+Svetlozar Ivanov
+Daniel Nicoletti
+Marcin Wołyniak
+Yves Carlier
+Walid Aweiwi
+Nobuyuki Ogahara
+Danijel Getejanc
+Barry Michels
+Maxxer
+Paolo Basenghi
+sswitzer
+Carlos Monteiro

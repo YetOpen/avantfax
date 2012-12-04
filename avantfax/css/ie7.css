@@ -1,0 +1,72 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * IE7
+ */
+
+.outer-dialogcontainer { 
+	width: 50em;
+	height:100%;
+	display:table;
+	#position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.inner-dialogcontainer {
+	margin: 0 auto;
+	display:table-cell;
+	vertical-align:middle;
+	#position: absolute;
+	#top: 50%;
+	#left:-50%;
+}
+
+.dialog-container{
+	margin: 0 auto;
+	display:block;
+	width: 50em;
+	#position: relative;
+	#top: -50%;
+	#left: 50%;
+}
+
+/*
+ * for viewfax
+ */
+
+.viewmainimageDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.viewmainimage {
+	cursor: auto
+}
+
+/**
+ * LOGIN CSS
+ */
+#top {
+	background-color: #FFFFFF;
+	height: 0em;
+}
+
+#bottom {
+	background-color: #FFFFFF;
+	height: 0em;
+	width: 100%;
+	bottom: 0;
+	position: relative;
+	text-align: center;
+}

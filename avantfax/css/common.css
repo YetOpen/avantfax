@@ -1,0 +1,108 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * COMMON CSS
+ */
+
+h1 {
+	color: #FF6600;
+	font-size: 1.6em;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.1em;
+}
+
+small {
+	font-size: 0.9em;
+}
+
+#modem-status-div {
+	font-size: 1.1em;
+	padding-bottom: 0.7em;
+}
+
+.modem-wait {
+	font-style:italic;
+	text-shadow: #999999 0.1em 0.1em 0.1em;
+}
+
+.modem-alias {
+	font-weight:bold;
+	text-shadow: #999999 0.1em 0.1em 0.1em;
+}
+
+.modem-status {
+	padding-right: 1em;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.1em;
+}
+
+.modem-free {
+	color:#00ff00;
+}
+
+.modem-recv {
+	color:#ff00ff;
+}
+
+.modem-recv-from {
+	color:#ff0000;
+}
+
+.modem-send {
+	color:#0000ff;
+}
+
+#files_list {
+	text-align: left;
+	clear: both;
+	margin-left:0;
+	padding: 0.5em;
+	font-size: 0.9em;
+}
+
+.files_list_btn {
+	margin-left: 1em;
+}
+
+#files_list div {
+	text-align: left;
+	clear: both;
+	padding: 0.3em;
+}
+
+.servername {
+	color:#000033;
+	font-size: 1.2em;
+	font-family:"Courier New", Courier, monospace
+}
+
+.strorange {
+	font-weight: bold;
+	color:#FF6600
+}
+
+p, a, td, th {
+	font-size: 1.1em;
+}
+
+/**
+ * LINKS
+ */
+a {
+	color: #272324;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:visited {
+	color: #272324;
+}

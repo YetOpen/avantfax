@@ -1,0 +1,82 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/*
+ * Archive
+ */
+
+#faxpreview {
+	position: absolute;
+	width: 8em;
+	height: 12em;
+	border: 0.1em solid #FF6600;
+	padding: 0.2em;
+	background-color: white;
+	display: none;
+	z-index: 100;
+}
+
+.archiveForm {
+	width: 75em;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 0.9em;
+}
+
+.archiveForm label {
+	width: 10em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+.archiveForm p {
+	margin-bottom: 0.3em;
+	margin-top: 0.4em;
+	text-align: left;
+	clear: both
+}
+
+.archiveForm legend {
+	color: #000000;
+	font-style: normal
+}
+
+.archiveForm input {
+	/*text-align: left;
+	margin-left: 0;*/
+}
+
+.archiveFormLeft {
+	float: left;
+	position: relative
+}
+
+.archiveFormRight {
+	float: right;
+	position: relative;
+}
+
+.archive-company {
+	font-size: 0.9em;
+	font-weight:normal
+}
+
+.archive-description {
+	font-size: 0.9em;
+	font-weight: bold
+}
+
+.archive-results {
+	font-size: 0.9em;
+	font-weight: normal
+}

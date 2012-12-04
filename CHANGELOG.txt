@@ -1,0 +1,625 @@
+AvantFAX 3.3.3
+- includes/avantfaxcron.php
+	- bug fixed to remove temporary files by modification time rather than access time
+- includes/langs/pt-PT.php
+	- Portuguese language added by Carlos Monteiro
+- includes/faxcover.php
+	- Fix sender's name lookup
+
+
+AvantFAX 3.3.2
+- includes/config.php
+	- remove variable for path to 'expect'
+- includes/templates/main_theme/templates/inbox.tpl
+	- Multiple select delete fax image no longer displayed for users that can't delete faxes
+- includes/functions.php, includes/config.php
+	- fixed problem in pdf_preview() with PDFs that weren't converting into thumbnail images properly by adding pnmquant to the pipeline
+- includes/MDBOData.php
+	- magic methods changed from private to public
+- includes/PAMAuth.php, includes/PWAuth.php
+	- PAMAuth uses PHP's built-in pam_auth library
+	- PWAuth uses the pwauth utility
+- includes/classes.php
+	- FIX: added is_admin to UserAccount class
+- updated various files to use explode() instead of split() since split() is deprecated in PHP 5.3
+- includes/notify.php
+	- When user lookup fails for the email address that sent the job, the user's email address will be used instead of sending the email to the fax server admin
+- txreport.php
+	- Bug fixed to show reports for faxes viewable by the user
+- admin/system_logs.php
+	- fix date format for search results
+
+
+
+AvantFAX 3.3.1
+- viewfax.php
+	- Bug fixed: navigating to the Next or Previous fax didn't work properly for accounts with limited access on a few individual fax lines.  The next/previous button simply took the user to the next available faxid in the system-wide Inbox, which may not always be visible to that user and in this case, causing the user to return to the Inbox because permission was denied for the requested faxid
+- inbox.php, viewfax.php, ajax/ajaxinbox.php, includes/functions.php, includes/FaxPDFArchive.php
+	- Now faxes that are in the Inbox that have been categorized will not show up in user inboxes where they do not have permission to view that fax category
+- includes/FaxPDFArchive.php
+	- Method search_archive() fixed to not show other user's sent faxes as received faxes when superusers view the Archive for "only received faxes"
+- js/dialog.js
+	- Function dialogFaxAlter updated to accept the name of the owner of the fax job
+- includes/templates/main_theme/templates/outbox.tpl
+	- updated to send the name of the owner of the fax job to dialogFaxAlter
+- includes/templates/main_theme/templates/faxalter.tpl
+	- added owner input to the form to keep track of owner of the fax
+- ajax/faxalter.php
+	- updated to support tracking the owner of the fax
+- includes/FaxQueue.php
+	- methods killjob and faxalter updated to use the name of the owner of the fax in order to kill and alter fax jobs
+	- no longer requires 'expect' and a HylaFAX admin account for AvantFAX
+- rh-install.sh, debian-install.sh, sles-install.sh, avantfax.spec
+	- remove install requirement for expect
+	- Symlink to faxcover no longer needed, use "CoverCmd:		$INSTDIR/includes/faxcover.php" in /etc/hylafax/sendfax.conf instead
+- includes/local_config-example.php, includes/config.php
+	- removed $FAXRMPWD as it is no longer needed
+
+
+AvantFAX 3.3.0
+	*NEW*
+	- Alternate authentication support via Apache Authentication (htaccess, MySQL, PostgreSQL, Kerberos, LDAP/Active Directory, PAM, Smart Card)
+		- the users' account must still be created in AvantFAX, but authentication can take place using a apache
+	- Alternate authentication support via custom authentication class (see example PAMAuth.php file)
+		- Users enter their account information into the AvantFAX login form like normal
+		- the users' account must still be created in AvantFAX, but authentication can take place using alternate method
+	- Inbox supports selecting multiple faxes to either Archive or Delete at once
+	- Paging support for both Inbox and Archive pages
+
+- db-update-330.sql
+	- Added user setting for desired number of faxes to show per page in the Inbox and Archive
+- avantfax.spec
+	- more tweaking
+- includes/functions.php
+	- Check added for mkdirs function
+- includes/config.php, includes/local_config-example.php
+	- update URL to white pages reverse lookup
+- admin/index.php, index.php
+	- update page to use Apache authentication if provided
+- includes/langs/*.php
+	- added new line for apache authentication error
+- includes/AFUserAccount.php
+	- added method for apache-based login
+	- added method for custom alternate authentication
+- includes/FaxPDFArchive.php
+	- added support for paging results
+- includes/PAMAuth.php
+	- example PAM authentication class using 'pwauth' to authenticate users via the UNIX passwords file or PAM
+- rh-install.php
+	- fixed path for symlinking faxcover.php
+- js/avantfax.js
+	- added function selectAllFaxes() for selecting all faxes in Inbox
+- js/dialog.js
+	- added functions to support archiving and deleting multiple faxes via AJAX
+	- dialog windows are draggable
+- ajax/ajaxarchivefax.php, ajax/ajaxdeletefaxes.php
+	- added AJAX back-ends to support archiving and deleting multiple faxes
+- includes/templates/main_theme/templates/archive.tpl
+	- updated to add paging support
+- includes/templates/main_theme/templates/inbox.tpl
+	- updated to add paging support
+	- updated to add multifax select support
+- includes/templates/main_theme/templates/header.tpl
+	- all User pages show the number of faxes in the Inbox
+- includes/templates/main_theme/templates/ajaxdeletefaxes.tpl
+	- added file for confirming multiple delete of faxes
+- includes/classes.php
+	- UserAccount: Added user setting for desired number of faxes to show per page in the Inbox and Archive
+
+
+AvantFAX 3.2.2
+- admin/admin.php
+	- fix HylaFAX version lookup for EE users
+- rh-install.sh, rh-uninstall.sh
+	- improved scripts
+- avantfax.spec
+	- greatly improved RPM script for installing, upgrading, and uninstalling
+
+
+
+AvantFAX 3.2.1
+- includes/langs/*.php
+	- update language files with missing strings
+- includes/functions.php
+	- add debug logging for annotate_fax function
+
+
+
+AvantFAX 3.2.0
+	*NEW*
+	- Multiple cover page support
+	- Email support for CC and BCC addresses
+	- Improved HTML cover support (support is enabled automatically if html2ps is installed)
+
+- db-update-320.sql
+	- Added new Covers table for managing multiple cover pages
+- includes/local_config-example.php, includes/config.php
+	- added FAXRCVD_INCLUDE_PDF option whether to include the PDF in the email or not
+- setup-postfix.sh
+	- Fix configuration problem with Postfix when using setup-postfix.sh for configuring Email to FAX
+- includes/functions.php
+	- Fix for removing the slash near the parenthesis in fax cover page comments
+	- added html entity decoding for email subjects and from addresses
+	- Added support for stripping SIP information from fax numbers, via strip_sipinfo function
+- includes/Mailer.php
+	- added html entity decoding for the text body
+- includes/notify.php
+	- add support for job status information in qFiles
+	- race condition fix reported by Paolo Basenghi
+- includes/faxrcvd.php
+	- added support for $FAXRCVD_INCLUDE_PDF
+- includes/dynconf.php
+	- added support for stripping SIP info from caller id, if there, in order to reveil only the fax number
+- includes/avantfaxcron.php
+	- fixed a problem when calculating the date
+- setup-postfix.sh
+	- added support for installing postfix on CentOS, SuSE and Debian
+	- improved postfix configuration support
+- includes/langs/ar.php
+	- Arabic language support added by Walid Aweiwi
+- includes/langs/rs.php
+	- Serbian language support added by Danijel Getejanc
+- includes/langs/ja.php
+	- Japanese language support added by Nobuyuki Ogahara
+- rh-install.sh
+	- updated to find hyla.conf file for HylaFAX 6.0.
+- sendfax.php, refax.php
+	- support added to allow users to fax from any modem if they have that permission set, even if they're not able to view any modem.
+	- when selecting a modem, add the "localhost" part to the -h option in order to avoid the HylaFAX Assert() bug
+- css/sendfax.css
+	- added file for customizing the sendfax and refax pages
+- Added admin/conf_covers_edit.php, conf_covers_edit.tpl, admin/conf_covers.php, conf_covers.tpl, includes/Covers.php
+	- Multiple cover page support contributed by Barry Michels
+- emailcontacts.php, email.php
+	- CC and BCC support when emailing fax files contributed by Maxxer
+- includes/FileUpload.php
+	- check for mime types that have spaces in them and remove the irrelevant data
+- includes/Smarty
+	- library upgraded to version 2.6.26
+- includes/faxcover.php
+	- updated to support changes in HylaFAX 6.0/HylaFAX EE 4.1 faxcover arguments
+- tools/import_archive.php
+	- new import script for importing an AvantFAX archive directory into an empty AvantFAX database
+	- development sponsored by Harte & Lyne Limited, Canada
+
+
+AvantFAX 3.1.6
+- db-update-316.sql
+	- increased the amount of modem and DID groups, and fax categories assignable to each user
+- includes/faxrcvd.php
+	- archive support for Fax2Email even if the fax is only printed.  Previously, faxes would only archive if emailed.
+- includes/FaxQueue.php
+	- improved fax queue parsing to ignore modems not used by AvantFAX
+	- fixed problem with process_failed_queue()
+- Upgrade script.aculo.us libs to 1.8.2
+- Upgrade Smarty libs to 2.6.22
+- sendfax.php, refax.php, ajax/faxalter.php
+	- Changed the fax scheduled delivery feature from NOW+X to use a specific Hour and Minute, ie: send fax at 14:00
+- faxcontacts.php, ajax/faxalter.php
+	- fixed bug
+- outbox.php
+	- shows fax job's status and time to send (TTS)
+- upgrade-from-2.3.sh
+	- added additional check for /faxes and /tmp directory permissions
+- includes/config.php
+	- Removed requirement for FileInfo and mime_content_type if not available, built-in mime_by_suffix function will be used
+
+
+AvantFAX 3.1.5
+- db-update-315.sql
+	- database update to support 5 character length Language codes (ie: zh-tw)
+- includes/notify.php
+	- attached PDF is named with the fax number rather than simply fax.pdf
+- includes/lang/bg.php
+	- updated Bulgarian translation provided by Chavdar Shtilianov
+- tools/reroute.php
+	- script added for changing Modem and DID-based inbound fax routing (useful when used with cron)
+- debian-install.sh, sles-install.sh, rh-install.sh
+	- small fix
+- includes/DIDRouting.php, includes/FaxModem.php
+	- bug fixed in set_* methods
+
+
+AvantFAX 3.1.4
+- includes/faxrcvd.php
+	- re-added missing OCR support
+
+
+AvantFAX 3.1.3
+- outbox.php
+	- fix to allow users to kill faxes with an ID greater than 4 digits
+- outbox.php, js/faxcontacts.js
+	- when altering a job destination, the semicolon is no longer added with the fax number
+- archive.php
+	- set default search results to "*" for both sent and received faxes
+	- added FaxID to last column in Archive results
+- sendfax.php, refax.php, functions.php
+	- Add the ability to specify to receive notifications on fax requeue
+	- added $SENDFAX_REQUEUE_EMAIL to local_config-example.php
+	- improved "Options" DIV to resemble a button
+- viewfax.php, viewfax.tpl
+	- Added date
+- rh-install.php
+	- greatly improved script
+- rh-uninstall.php
+	- added uninstallation script
+- code maintenance to confirm to Zend coding standards
+
+
+AvantFAX 3.1.2
+- upgrade.sh
+	- last line fixed to properly show output
+- includes/functions.php
+	- faxinfo function fixed to allow '0' value Sender
+- rh-install.sh, sles-install.sh, debian-install.sh
+	- updated permissions for fax archive during installation
+- italian and russian translations updated
+- includes/FaxPDFArchive.php, email.php, pdf.php, refax.php, rotate.php, viewfax.php, ajax/archivefax.php, ajax/delete.php, ajax/set_note.php
+	- user_has_rights bug fix to properly allow access to faxes
+
+
+AvantFAX 3.1.1
+    *NEW*
+	- Barcode-based routing support
+	- Added printing support by DID Group, Modem and Company
+
+- added db-update-311.sql
+- images/coverpage.html
+	- added CSS for improved customizability
+- local_config-example.php, archive.tpl
+	- Added $ARCHIVE_WIDE setting for users with screen small resolutions
+	- improved local_config.php layout
+	- added $FOCUS_ON_NEW_FAX_POPUP for alert window when a new fax is received
+- rh-install.sh, sles-install.sh, debian-install.sh
+	- bugs fixed and scripts improved
+- index.tpl, pwdexpired.tpl, css/ie6.css, css/ie7.css
+	- Removed orange strip from top and bottom in CSS for IE
+- includes/FaxPDFCategory.php
+	- fix for listing categories for Superusers when there is only 1 category
+- updated several template files to increase text area sizes
+- includes/faxrcvd.php
+	- HylaFAX's faxid is used instead of the timestamp of received faxes in the path to faxes in the AvantFAX Archive
+	- Improved logic
+- js/avantfax.js
+	- performInboxCheck fix to take focus only when fax count is greater than current Inbox count
+
+
+AvantFAX 3.1.0
+    *NEW*
+	- The ability to resubmit failed faxes that are still in the HylaFAX doneq
+	- HTML based cover page (requires html2ps, more details in local_config-example.php)
+	- Added support for annotating PDFs with the FaxID
+	- Added support for using custom Cascading Style Sheets (and saving them)
+	- Added support to use HylaFAX's tiff2ps script instead of AvantFAX's tiff2ps functionality
+	- Debian installation script (Experimental: testing and recommendations appreciated)
+
+- ajax/faxalter.php, outbox.php
+	- added minutes option for sending delayed faxes
+	- added support for resubmitting failed jobs
+- inbox.php, inbox.tpl
+	- view modem statuses right away
+- sendfax.php, refax.php
+	- fixed html entity problem in TSID
+	- added support for number of tries and kill time
+	- File upload 'Delete' button is shown in the user's selected language
+- ajax/faxalter.php
+	- added support for number of tries and kill time
+- local_config-example.php, config.php
+	- added $FOCUS_ON_NEW_FAX setting to set focus on browser when a new fax arrives
+	- added $USE_HTML_COVERPAGE, $HTML_COVERPAGE_FILE and $HTML2PS options
+	- added support for annotating PDFs (see ENABLE_FAX_ANNOTATION and ANN_GRAVITY)
+	- added warning message for users with register_globals set to On in php.ini
+	- $AVANTFAX_SERVERNAME defaults to `hostname` instead of NULL
+- Smarty
+	- updated Smarty libraries from version 2.6.18 to 2.6.19
+- includes/functions.php, includes/faxcover.php, images/htmlcover.html
+	- added support for HTML based cover page (html2ps is required)
+	- fix for setReturnPath in new_mailer function
+- includes/faxrcvd.php
+	- fixed problem where fax number didn't exist but company did exist
+- archive.php
+	- search for faxes by faxid
+- config.php, archive.php, avantfax.js
+	- fixed path to "no thumbnail" image
+- txreport.php
+	- transmission report page added (click on the green arrows in the Archive page)
+- viewfax.tpl
+	- template variable fixed for FaxID
+- rh-install.sh, sles-install.sh, upgrade.sh
+	- improved scripts
+- debian-install.sh
+	- added installation script for Debian
+- ajax/ajaxmodemstatus.php
+	- Inbox now shows the modem status in the user's selected language
+- tools/create_thumbnails.php
+	- create thumbnails and preview images that have been deleted for sent and receive faxes (for viewing in the Transmission report page)
+- many small bug fixes
+
+
+
+AvantFAX 3.0.9
+- rh-install.sh, sles-install.sh
+	- added rsync to installation requirements (in order for upgrade script to work)
+- includes/faxrcvd.php
+	- fix attach thumbnail to email
+- includes/ArchiveOut.php
+	- fix the assignment of the fax id
+- sendfax.php, refax.php
+	- added minutes option for sending delayed faxes
+- includes/dynconf.php
+	- added extra control for empty CallID
+- inbox.php
+	- bug fix to show correct DID Group
+
+
+AvantFAX 3.0.8
+- includes/AFAddressBook.php
+	- bug fixed on line 482
+- js/dialog.js
+	- fix archive fax from viewfax page
+- admin outbox.tpl
+	- removed outbox of the Admin area
+- archive.tpl
+	- images now display whether a fax was sent or received
+- includes/FaxPDFArchive.php
+	- fix view only sent or only received faxes for Superuser
+- includes/local_config-example.php, config.php
+	- added $USE_CallerIDval for improved Caller ID handling
+- js/xhrobject.js
+	- fix for Firefox
+- includes/FaxModem.php
+	- fix create modem with contact email
+- includes/avantfaxcron.php
+	- new option (-d num-days) for delete faxes in the Archive after specified number of days
+- sendfax.php, refax.php
+	- fix faxing files with filenames that start with 0
+- tools/import_blacklist.php
+	- script added for importing your RejectCall blacklist
+- admin area
+	- added some online documentation
+
+
+AvantFAX 3.0.7
+    *NEW*
+	- DynamicConfig/RejectCall support for Blacklisting fax numbers
+	- Improved user interface for adding notes, archiving, and deleting faxes
+	- Support for modifying TSI and scheduling when sending faxes
+	- Improved fax queue management
+	- Improved processing of large faxes
+
+- added db-update-307.sql
+- includes/local_config-example.php, includes/config.php
+	- options to have thumbnail of fax in email
+	- added $FAXALTER variable
+	- added $DEFAULT_TSI_ID variable
+- includes/ArchiveIn.php
+	- improved processing for rotating large multipage faxes
+- includes/faxrcvd.php
+	- improved processing for large faxes
+- inbox.php, inbox.tpl
+	- shows DID Group instead of Modem when using DID Routing mode
+- viewfax.tpl
+	- fixed javascript error when viewing large multipage faxes
+- includes/htmlMimeMail5.php
+	- further corrections for the SMTP feature
+- includes/FaxQueue.php
+	- added enhanced fax queue support
+- ajax/faxalter.php
+	- AJAX script created for improved fax queue management
+- js/faxalter.js
+	- Javascript counterpart for AJAX script faxalter.php
+- js/dialog.js
+	- improved dialog window functionality
+- note.php
+	- file replaced by ajax/set_note.php
+- delete.php
+	- file replaced by ajax/delete.php
+- remove.php
+	- file replaced by ajax/archivefax.php
+- addressbook_edit.php
+	- fixed a bug when creating a new entry after deleting an entry
+- sendfax.php, refax.php
+	- added job scheduling features
+
+
+AvantFAX 3.0.6
+- added db-update-306.sql
+- includes/functions.php, includes/local_config-example.php, incluldes/config.php
+	- added support for saving barcode data in faxes (requires HylaFAX EE)
+	- added INBOX_LIST_MODEM option for splitting Inbox into separate areas by modem
+	- added $AUTOCONFDID option to enable/disable auto creation of new DID/DTMF groups.  
+- ie6.css, viewfax.tpl, sendfax.tpl, inbox.tpl, avantfax.js, adressbook_edit.tpl
+	- most IE6 CSS issues fixed
+	- IE7 improvements in viewfax
+- js/dialog.js, inbox.tpl, viewfax.tpl, archive.tpl
+	- the delete fax function has been replaced with new dialog box
+- functions.php:
+	- avantfax_session function created for named sessions
+	- update submit_fax function to add -D switch to sendfax command
+- sles-install.sh, rh-install.sh
+	- Email 2 FAX configuration removed
+- setup-postfix.sh, setup-sendmail.sh, email2fax.txt
+	- scripts added to configure Email 2 FAX
+- upgrade-from-2.3.sh, upgrade.sh
+	- scripts improved
+- minimal-install.sh
+	- file removed, replaced by other rh-install & setup-sendmail.sh
+- admin/conf_didroute_edit.php, conf_modems_edit.php, includes/DIDRouting.php, includes/FaxModem.php
+	- printing support by modem or did group added, special thanks to Yves Carlier
+- includes/Mailer.php, includes/htmlMimeMail5.php
+	- fixed a problem with sending email over SMTP
+- includes/AFUserAccount.php
+	- modified password logging for failed login attempts
+
+
+
+AvantFAX 3.0.5
+- admin/conf_didroute_edit.php
+	- remove contact requirement for DID/DTMF
+- includes/faxrcvd.php
+	- In DID mode, faxrcvd.php now auto creates new DID routes that weren't previously configured
+	- When an unconfigured modem is used, it will automatically be created
+- includes/functions.php
+	- fix to send addition arguments to sendfax for faxes without attached documents
+- includes/config.php, local_config-example.php
+	- path to lpr program fixed
+	- added RESTRICTED_USER_MODE
+- includes/DIDRouting.php
+	- fix to properly set and remove contact information
+	- fix to properly get DID routes (fixes inbox problem for Superusers)
+- includes/FaxPDFArchive.php
+	- create_fax fix to not show error message in log for successful faxes
+	- added archive results restrictions
+- includes/FaxModem.php
+	- parses Receiving [pagenum] properly from HylaFAX EE faxstat information
+- several other bug fixes
+
+
+
+AvantFAX 3.0.4
+- admin/system_func.php
+	- added missing $error declaration
+- sles-install.sh, upgrade-from-2.3.sh, rh-install.sh
+	- scripts improved
+- admin/fax2email_edit.php, includes/templates/admin_theme/templates/fax2email_edit.tpl
+	- bug fix
+- includes/templates/main_theme/templates/archive.tpl
+	- fix to show username in Archive results
+- includes/notify.php
+	- now adds To Person, To Location, and To Voice number to Address book database
+- forgot.php
+	- added check to require email address
+- includes/AFUserAccount.php
+	- reset password function fixed
+
+
+
+AvantFAX 3.0.3
+- includes/AFUserAccount.php
+	- delete username after password change fixed
+- includes/faxcover.php
+	- fax sent with cover page and document now shows user's name instead of partial email address
+- includes/templates/
+	- several templates setup with auto focus on form fields
+
+
+
+AvantFAX 3.0.2
+    *NEW*
+	- Optical character recognition support (using Tesseract) for improved keyword searching
+	- Download your AvantFAX Archive and Database easily from the Admin Control Panel
+	- Inbound fax notifications include thumbnail of the fax
+	- Import FAX numbers in vCard format
+	- Inbox pruning script
+	- Improved email support library
+
+- no-database.php, admin/no-database.php:
+	- notice page added when the database is down
+- sles-install.sh:
+	- improved installation script
+	- added postfix configuration for Email to FAX
+	- fixed apache2 config
+- archive.php:
+	- small fix
+- template for admin/pwdexpired.php:
+	- html fixed to show form properly, added Cancel button
+- includes/AFUserAccount.php:
+	- added is_array check for $this->dbdata
+- sendfax.php, refax.php:
+	- fix for missing from-company, from-location, from-voicenumber, from-faxnumber in cover page
+- includes/faxcover.php:
+	- faxcover now looks up the full user name for the email address sent to it in the '-f' switch
+- includes/langs/*:
+	- updated sendfax phrase to include Text file support
+	- added a couple new phrases
+	- updated Polish translation by Marcin Wolniak
+- includes/config.php:
+	- added notice message for PHP installations missing both FileInfo and mime_content_type
+	- added support for autoloading fileinfo shared object
+	- added the option to copy TIFF files in G4 compression format to save space
+	- removed NUMDAYS_TMPFILE
+- includes/local_config-example.php:
+	- removed NUMDAYS_TMPFILE
+	- fix variable name $FAXMAILUSER
+- includes/avantfaxcron.php:
+	- added for Inbox and AvantFAX temp directory pruning
+	- replaces remold.php
+- tools/ocr_import.php:
+	- tool for importing OCR data for faxes already in the Archive
+- includes/ArchiveIn.php:
+	- prune_inbox method added
+- includes/remold.php:
+	- file removed
+- includes/functions.php:
+	- added text/plain to mime_by_suffix
+	- added several new functions
+	- added OCR support
+	- improved send_mail function
+	- phone_lookup bug fixed by removing class.faxnum.php requirement
+- includes/FaxModem.php:
+	- space added between FaxRecvFrom and the fax number/company name
+- includes/htmlMimeMail5.php, includes/Mailer.php:
+	- added for more robust emailing capabilities
+	- local-config.php SMTP server settings have changed
+- file.php:
+	- updated to use new get_filetype function
+- admin/users.php:
+	- fix to properly set Administrative privleges
+- settings.php, admin/users.php, admin/conf_modems_edit.php:
+	- relaxed email address format restrictions
+	- mutliple emails can be saved
+- includes/AFAddressBook.php:
+	- create_contacts email problem fixed
+- email.php:
+	- fix to send user back to referring page once email is sent
+	- email addresses are separated by semicolons instead of commas
+	- email includes thumbnail of the FAX
+- ajax/ajaxemailbook.php:
+	- contacts quick search fixed
+- includes/templates/plugins/function.required.php:
+	- {required} Smarty plugin added
+	- several templates updated to use this feature
+- includes/faxrcvd.php
+	- emails include thumbnail of the FAX
+	- added the option to copy TIFF files in G4 compression format to save space
+- includes/notify.php:
+	- emails include thumbnail of the FAX
+- admin/system_func.php:
+	- Added Database and Archive export features
+- admin/fax_cat_edit.php, admin/conf_modems_edit.php, admin/conf_didroute_edit.php:
+	- fix to continue showing "Create" form when Blank input is submitted
+- includes/templates/admin_theme/templates/*, admin/admin.css:
+	- Admin interface improved
+- upload_faxcontacts.php:
+	- added to import fax contacts in vCard format
+- includes/FaxPDFArchive.php:
+	- search_companies function improved
+- includes/AFUserAccount.php:
+	- fixed a non-administrative user login problem
+- pwdexpired.php, admin/pwdexpired.php:
+	- fixed database issue
+
+
+
+AvantFAX 3.0.1
+- includes/functions.php:
+	- increased logging when sending a fax
+- upgrade-from-2.6.sh:
+	- added script for upgrading from AvantFAX 2.6
+- sendfax.php, refax.php:
+	- fixed a bug when filling in form field "regarding" and "to company"
+- js/dlcontacts.js, distrocontacts.tpl:
+	- fixed incorrect reference to select object
+- ajax/ajaxprefillto.php:
+	- fix for HTML entity problem in XML
+- rh-install.sh, sles-install.sh:
+	- fix chmod issue on /etc/sudoers (Your sudoers file must be mode 0440)
+- includes/notify.php:
+	- fixed bug in setting description for sent faxes in the database
+
+If you're upgrading from 3.0.0, run: mysql -uavantfax -pd58fe49 -e "ALTER TABLE FaxArchive change faxnumid faxnumid INT;" avantfax
+
+
+
+AvantFAX 3.0.0
+- Initial release

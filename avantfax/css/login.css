@@ -1,0 +1,101 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/**
+ * LOGIN CSS
+ */
+ 
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #FFFFFF;
+	border: none;
+	min-height: 100%;
+	margin: auto;
+}
+
+body {
+	margin: auto;
+	height: 100%;
+	
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	background-color: #FFFFFF;
+	color: #000000;
+	font-weight:bold;
+}
+
+* html #main {
+	height: 100%;
+}
+
+a { text-decoration: none; color: #FF6600}
+a:hover { text-shadow: #660000 0 0 0.5em; color: #FF6600; }
+
+img {
+	border: 0;
+}
+
+#main {
+	font-size: 1.1em;
+
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	
+	padding-top: 7.5em; /* the height of the footer */
+	margin-top: -7.5em; /* the height of the footer */
+	min-height: 100%;
+}
+
+#top {
+	background-color: #CC6600;
+	height: 2em;
+}
+
+#header {
+	width: 60em;
+	margin-left: 10em;
+	margin-top: 1em;
+	height: 5em;
+	line-height: 5em;
+}
+
+#content {
+	width: 60em;
+	margin-left: 10em;
+	clear: both;
+	padding: 1em;
+	padding-bottom: 8.5em;
+}
+
+#bottom {
+	background-color: #CC6600;
+	height: 2em;
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	text-align: center;
+}
+
+li {
+	margin-left: 1em;
+	list-style-position:inside;
+}
+
+ul {
+	margin-left: 1em;
+}

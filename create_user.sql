@@ -1,0 +1,8 @@
+-- AvantFAX 3.0.0 MySQL structure
+
+DROP DATABASE IF EXISTS avantfax;
+
+-- CREATE DATABASE avantfax
+CREATE DATABASE avantfax DEFAULT CHARACTER SET utf8;
+GRANT ALL PRIVILEGES ON avantfax.* TO 'avantfax'@'localhost' IDENTIFIED BY 'd58fe49';
+FLUSH PRIVILEGES;

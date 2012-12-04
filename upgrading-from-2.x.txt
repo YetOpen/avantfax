@@ -1,0 +1,78 @@
+Summary of changes from AvantFAX 2.x to 3.x
+- Optical character recognition support (using Tesseract) for improved keyword searching
+- Download your AvantFAX Archive and Database easily from the Admin Control Panel
+- Inbound fax notifications include thumbnail of the fax
+- Import FAX numbers in vCard format
+- Inbox pruning script
+- Improved email support library
+- Database abstraction
+- Theme support
+- Improved AJAX functionality
+- Improved fax queue management
+- Blacklisting support
+- Improved accessibility
+- Improved XHTML and CSS
+- Initial account is 'admin' and can log into both User and Admin areas
+- All email addresses in the contacts area are now global in preparation for the inclusion of LDAP support
+- Inbox refreshes only when there's a new fax or a fax has been archived (checks via AJAX every 30 seconds)
+- Modem status in the Inbox is updated via AJAX
+
+** IMPORTANT **
+
+1) If you're upgrading from a version prior to 2.2.6, you must apply all of the database patches from your version to 2.2.6.  If you download the latest 2.x series of AvantFAX, it will have all of the required db-update-*.sql files.  BACKUP YOUR DATABASE BEFOR YOU BEGIN!
+
+mkdir ~/faxbackup
+cd /var/www/avantfax
+mysqldump --user=avantfax --password=d58fe49 avantfax > ~/faxbackup/db_backup.sql
+cp -ru includes/local_config.php faxes/ ~/faxbackup
+
+** Attention **
+
+All of the following commands are already prepared for you in a script called "upgrade-from-2.3.sh".  Run it only ONCE!
+
+***************
+
+2) You must update your database schema with the db-update-300.sql file included in this package
+
+mysql -uavantfax -pd58fe49 avantfax < db-update-300.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-302.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-306.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-307.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-311.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-315.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-316.sql
+mysql -uavantfax -pd58fe49 avantfax < db-update-320.sql
+
+3) Your administrative account will be reset to "admin" with password "password"
+
+4) All of the PHP files on your AvantFAX 2.x installation must be removed. You could easily remove all of the PHP files with:
+
+find /var/www/avantfax/ -name "*.php" -exec rm -f {} \;
+find /var/www/avantfax/ -name "*.css" -exec rm -f {} \;
+find /var/www/avantfax/ -name "*.js" -exec rm -f {} \;
+
+5) Don't use the Installation script for upgrading!  Use the following commands instead:
+
+chmod 0770 avantfax/includes/templates/admin_theme/templates_c/ avantfax/includes/templates/admin_theme/cache/  avantfax/includes/templates/main_theme/templates_c/ avantfax/includes/templates/main_theme/cache/
+chown apache:apache avantfax/includes/templates/admin_theme/templates_c/ avantfax/includes/templates/admin_theme/cache/  avantfax/includes/templates/main_theme/templates_c/ avantfax/includes/templates/main_theme/cache/
+
+chmod 0755 avantfax/includes/faxcover.php avantfax/includes/faxrcvd.php avantfax/includes/notify.php avantfax/tools/update_contacts.php avantfax/tools/faxcover.php avantfax/includes/avantfaxcron.php
+
+rsync -rvu ./avantfax/ /var/www/avantfax/
+
+6) Install MDB2 support
+
+pear channel-update pear.php.net
+pear upgrade-all
+pear install MDB2_driver_mysql
+
+7) You must run the script "update_contacts.php" (located in the tools/ directory) to convert your Address book database records to the new format
+
+cd /var/www/avantfax/tools
+./update_contacts.php
+
+8) Your crontab for "remold.php" must be replaced with "avantfaxcron.php -t 2"
+
+crontab -e
+0 0 * * *       /var/www/avantfax/includes/avantfaxcron.php -t 2
+

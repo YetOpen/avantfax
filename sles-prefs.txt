@@ -1,0 +1,28 @@
+# DEFAULT INSTALL VALUES FOR SLES10
+#
+# BEWARE: Only run the install script once or risk having duplicate
+#         settings in your postfix, sudo, and other configuration files
+
+# The domain name for configuring email to fax
+FAXDOMAIN=fax.mydomain.com
+
+# The installation directory for AvantFAX
+INSTDIR=/srv/www/avantfax
+
+# The root directory where HylaFAX bin files are stored (typically, /usr or /usr/local)
+HYLADIR=/usr
+
+# HylaFAX $SPOOL directory (typically, /var/spool/hylafax or /var/spool/fax)
+SPOOL=/var/spool/hylafax
+
+# These are the database settings AvantFAX will create and use
+USER=avantfax
+PASS=d58fe49
+DB=avantfax
+
+# if the MySQL password for root is set, specify it here
+ROOTMYSQLPWD=
+
+# The user and group which Apache runs as (typically, apache, wwwrun, nobody, etc...)
+HTTPDUSER=wwwrun
+HTTPDGROUP=www

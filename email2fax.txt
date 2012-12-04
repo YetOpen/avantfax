@@ -1,0 +1,14 @@
+# This is the configuration file for Email 2 FAX
+# Edit your domain name below and save this file
+# before launching the scripts named below
+# 
+# To setup Postfix run: ./setup-postfix.sh
+# To setup Sendmail run: ./setup-sendmail.sh
+
+FAXDOMAIN=fax.mydomain.com
+
+# This user account must exist in your authentication system (ie. PAM, /etc/passwd, LDAP)
+# in order for the Postfix configuration to work (ie. uucp).
+# NOTE: Be sure to also set this value in local_config.php
+# DEBIAN users may want to set this to faxmaster for postfix installs
+FAXMAILUSER=faxmail

@@ -1,0 +1,31 @@
+---
+Installing AvantFAX
+---
+
+You can use the rh-install.sh script for RHEL5, CentOS 5, and Fedora Core 4 and better.  Similar scripts are available for SLES 10 (sles-install.sh) and Debian (debian-install.sh).  Please send suggestions directly david at avantfax.com.
+
+
+NOTE: Only run the script once or risk adding duplicate configuration settings to sudoers and the HylaFAX configuration files.
+
+The rh-install.sh does the following:
+
+- Installation of all required packages via yum
+- Updates PHP PEAR libraries
+- Configures HylaFAX's JobFmt and faxmail for AvantFAX
+- Installs AvantFAX files
+- Configures Apache virtual hosting for AvantFAX
+- Disables SELinux for Apache, allowing you to leave SELinux enabled on your server
+- Creates the AvantFAX MySQL user and database
+- Symlinks the AvantFAX faxrcvd and notify scripts to HylaFAX's $SPOOL/bin
+- Replaces HylaFAX's faxcover with AvantFAX's faxcover
+- Configures sudo
+- Configures HylaFAX $SPOOL/etc/config and $SPOOL/etc/config.tty* to use AvantFAX's custom scripts
+- Automatically adds any configured HylaFAX modems to AvantFAX's database
+- Sets up root's crontab for the AvantFAX housekeeping scripts
+
+There is another script for configuring Email to FAX.  For details, see email2fax.txt
+
+For more information, please see:
+
+http://www.avantfax.com/install.php
+

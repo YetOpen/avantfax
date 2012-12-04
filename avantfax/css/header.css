@@ -1,0 +1,165 @@
+/**
+ * AvantFAX - "Web 2.0" HylaFAX management
+ *
+ * PHP 5 only
+ *
+ * @author		David Mimms <david@avantfax.com>
+ * @copyright	2005 - 2007 MENTALBARCODE Software, LLC
+ * @copyright	2007 - 2008 iFAX Solutions, Inc.
+ * @license		http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/*
+ * Header
+ */
+ 
+ * {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #FFFFFF;
+	border: none;
+	margin: auto;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	background-color: #FFFFFF;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	border: 0;
+}
+
+#nav-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	border: 0;
+	font: 1.2em Verdana, Arial, sans-serif;
+	background: #ffffff;
+	z-index: 100;
+	width: 100%;
+	border-bottom: 1px solid #FF9900;
+	padding-bottom: 0.1em;
+	margin-bottom: 0.2em;
+	min-height: 6em;
+	
+	/*filter:alpha(opacity=95);
+	opacity: 0.95;
+	-moz-opacity:0.95;*/
+}
+
+html>body #nav-top {
+	position: fixed;
+}
+
+#innerbox {
+	padding: 0;
+	padding-top: 7em;
+}
+
+#scrollingcontent {
+	font-size: 1.2em;
+}
+
+#scrollingcontent a {
+	font-size: 1.0em;
+}
+
+#menu-area {
+	min-width:63em;
+	max-width: 70em;
+/*	width:67em !important;*/
+	width:70em !important;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#main-menu {
+	float: left;
+	position: relative;
+	margin-left:auto;
+	margin-right:auto
+}
+
+.main-menu-item {
+	float: left;
+	position: relative;
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	width: 5.5em;
+}
+
+.main-menu-item a {
+	display:block;
+	text-decoration:none;
+	font-family: Helvetica, sans-serif;
+	font-size:1.0em;
+	color: #0000FF;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.1em;
+}
+
+#main-menu a {
+	color: #0000CC;
+}
+
+#main-menu a:hover {
+	color: #ff6600;
+}
+
+#menu-right {
+	float: right;
+	position:relative;
+	font-size: 1.0em;
+	padding-top: 0.5em;
+}
+
+#menu-right p {
+	font-size: 1.0em;
+}
+
+#menu-right a {
+	font-size: 0.9em;
+	color: #0000CC;
+	text-decoration:none;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.1em;
+}
+
+#menu-right a:hover {
+	color: #ff6600;
+}
+
+#menu-right .servername {
+	color:#000033;
+	font-family:Courier, monospace;
+	font-size: 1.0em;
+}
+
+#avantfax-logo {
+	float: left;
+	position: relative;
+	width: 245px;
+	height: 45px;
+	padding-right: 1em;
+	padding-top: 0.5em;
+}
+
+#footer {
+	padding-top: 1em;
+}
+
+#footer a {
+	cursor:help;
+	color: #999999;
+	font-size:0.9em;
+	text-decoration:none;
+}
