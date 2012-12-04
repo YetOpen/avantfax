@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# AvantFAX install script for Debian
+# AvantFAX install script for Debian/Ubuntu
 # This script will configure /etc/sudoers and the HylaFAX hyla.conf, config, config.<devid> files
 # Only run once
 #
@@ -22,11 +22,7 @@ fi
 echo "Installing required packages"
 
 # removed libpq4
-apt-get install apache2-mpm-prefork apache2-utils apache2.2-common libapache2-mod-php5 libapr1 libaprutil1 libsqlite3-0 php5-cli php5-common mysql-server imagemagick libtiff4-dev netpbm libnetpbm10-dev libungif-bin libungif4-dev sudo php-mail php-mail-mime php-file php-db php5-mysql psutils wdiff rsync postfix 
-
-pear channel-update pear.php.net
-pear upgrade-all
-pear install Mail Net_SMTP Mail_mime MDB2_driver_mysql
+apt-get install apache2-mpm-prefork apache2-utils apache2.2-common libapache2-mod-php5 libapr1 libaprutil1 libsqlite3-0 php5-cli php5-common mysql-server imagemagick libtiff4-dev netpbm libnetpbm10-dev libungif-bin libungif4-dev sudo php-mail php-mail-mime php-file php-db php5-mysql psutils wdiff rsync postfix php-mdb2-driver-mysql php-net-smtp php-mail-mime php-mail
 
 echo "Installing AvantFAX and configuring HylaFAX"
 
@@ -68,7 +64,7 @@ chown -R $HTTPDUSER.uucp $INSTDIR/tmp $INSTDIR/faxes
 
 # CONFIGURE AVANTFAX VIRTUALHOST
 
-cat >> /etc/apache2/sites-enabled/000-default << EOF
+cat >> /etc/apache2/conf.d/avantfax.conf << EOF
 
 <VirtualHost *:80>
     DocumentRoot $INSTDIR
@@ -80,11 +76,11 @@ EOF
 
 # START APACHE
 
-/etc/init.d/apache2 restart
+service apache2 restart
 
 # IMPORT MYSQL DATABASE
 
-/etc/init.d/mysql start
+service mysql start
 
 echo "## Creating AvantFAX MySQL database ##"
 mysql --user=root --password=$ROOTMYSQLPWD -e "GRANT ALL ON $DB.* TO $USER@localhost IDENTIFIED BY \"$PASS\"" mysql
