@@ -247,7 +247,7 @@
 	// Your custom HTML cover page must be located in AvantFAX's "images" directory
 	// This feature requires html2ps.  AvantFAX was tested with version 1.0 beta5
 	// To download html2ps, follow this URL: http://user.it.uu.se/~jan/html2ps.html
-	$HTML2PS				= '/usr/local/bin/html2ps';	// path to html2ps
+	$HTML2PS				= '/usr/bin/html2ps';	// path to html2ps
 	
 	// if you need to change the document size
 	$PAPERSIZE				= 'a4'; // a4, letter

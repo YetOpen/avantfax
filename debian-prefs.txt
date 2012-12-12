@@ -29,3 +29,6 @@ ROOTMYSQLPWD=
 # The user and group which Apache runs as (typically, apache, wwwrun, nobody, etc...)
 HTTPDUSER=www-data
 HTTPDGROUP=www-data
+
+# Optional packages - uncomment this if you will use html cover pages
+#OPTPKGS="html2ps"
