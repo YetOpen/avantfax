@@ -39,6 +39,8 @@
 {assign var="index" value=$smarty.section.r.index}
 <p><label for="faxnumber{$index}">{$LANG.CONTACT_HEADER_FAXNUM}:</label> <input type="text" name="faxnumber[{$index}]" id="faxnumber{$index}" value="{$faxnumbers[r].faxnumber}" maxlength="20" /></p>
 <p><label for="to_person{$index}">{$LANG.TO_PERSON}:</label> <input type="text" name="to_person[{$index}]" id="to_person{$index}" value="{$faxnumbers[r].to_person}" size="25" maxlength="30" /></p>
+<p><label for="to_address{$index}">{$LANG.TO_ADDRESS}:</label> <input type="text" name="to_address[{$index}]" id="to_address{$index}" value="{$faxnumbers[r].to_address}" size="25" maxlength="30" /></p>
+<p><label for="to_city{$index}">{$LANG.TO_CITY}:</label> <input type="text" name="to_city[{$index}]" id="to_city{$index}" value="{$faxnumbers[r].to_city}" size="25" maxlength="30" /></p>
 <p><label for="to_location{$index}">{$LANG.TO_LOCATION}:</label> <input type="text" name="to_location[{$index}]" id="to_location{$index}" value="{$faxnumbers[r].to_location}" size="25" maxlength="30" /></p>
 <p><label for="to_voicenumber{$index}">{$LANG.TO_VOICENUMBER}:</label> <input type="text" name="to_voicenumber[{$index}]" id="to_voicenumber{$index}" value="{$faxnumbers[r].to_voicenumber}" size="25" maxlength="30" /></p>
 
@@ -54,6 +56,8 @@
 {/if}
 <p><label for="new_faxnum">{$LANG.CONTACT_HEADER_NEWFAX}:</label> <input type="text" name="new_faxnum" id="new_faxnum" value="{$fvalues.new_faxnum}" maxlength="20" style="background: #FFFFCC;" /></p>
 <p><label for="new_to_person">{$LANG.TO}:</label> <input type="text" name="new_to_person" id="new_to_person" value="{$fvalues.new_to_person}" size="25" maxlength="30" style="background: #FFFFCC;" /></p>
+<p><label for="new_to_address">{$LANG.TO_ADDRESS}:</label> <input type="text" name="new_to_address" id="new_to_address" value="{$fvalues.new_to_address}" size="25" maxlength="50" style="background: #FFFFCC;" /></p>
+<p><label for="new_city">{$LANG.TO_CITY}:</label> <input type="text" name="new_city" id="new_city" value="{$fvalues.new_to_city}" size="25" maxlength="50" style="background: #FFFFCC;" /></p>
 <p><label for="new_to_location">{$LANG.TO_LOCATION}:</label> <input type="text" name="new_to_location" id="new_to_location" value="{$fvalues.new_to_location}" size="25" maxlength="30" style="background: #FFFFCC;" /></p>
 <p><label for="new_to_voicenumber">{$LANG.TO_VOICENUMBER}:</label> <input type="text" name="new_to_voicenumber" id="new_to_voicenumber" value="{$fvalues.new_to_voicenumber}" size="25" maxlength="30" style="background: #FFFFCC;" /></p>
 

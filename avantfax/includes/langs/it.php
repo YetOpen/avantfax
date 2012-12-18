@@ -33,6 +33,8 @@ $LANG['DATE_END'] = "Data fine";
 $LANG['TO_PERSON'] = "Attn.";
 $LANG['TO_COMPANY'] = "Attn. Azienda";
 $LANG['TO_LOCATION'] = "Per Ufficio";
+$LANG['TO_ADDRESS'] = "Indirizzo";
+$LANG['TO_CITY'] = "Citt&agrave;";
 $LANG['TO_VOICENUMBER'] = "Attn. n° tel";
 
 $LANG['MY_COMPANY'] = "Nome Azienda";

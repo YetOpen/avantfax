@@ -32,6 +32,8 @@ $LANG['DATE_END'] = "End Date";
 $LANG['TO_PERSON'] = "To person";
 $LANG['TO_COMPANY'] = "To company";
 $LANG['TO_LOCATION'] = "To location";
+$LANG['TO_ADDRESS'] = "To address";
+$LANG['TO_CITY'] = "To city";
 $LANG['TO_VOICENUMBER'] = "To voice number";
 
 $LANG['MY_COMPANY'] = "Company";

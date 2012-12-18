@@ -29,12 +29,18 @@
 	$formdata->newRule('abookfax_id', NULL, FR_ARRAY);
 	$formdata->newRule('faxcatid', NULL, FR_ARRAY);	
 	$formdata->newRule('to_person', NULL, FR_ARRAY);
+	$formdata->newRule('to_address', NULL, FR_ARRAY);
+	$formdata->newRule('to_city', NULL, FR_ARRAY);
 	$formdata->newRule('to_location', NULL, FR_ARRAY);
 	$formdata->newRule('to_voicenumber', NULL, FR_ARRAY);
 	$formdata->newRule('new_faxnum');
+	$formdata->newRule('new_address');
+	$formdata->newRule('new_city');
 	$formdata->newRule('new_desc');
 	$formdata->newRule('newfaxcatid');
 	$formdata->newRule('new_to_person');
+	$formdata->newRule('new_to_address');
+	$formdata->newRule('new_to_city');
 	$formdata->newRule('new_to_location');
 	$formdata->newRule('new_to_voicenumber');
 	
@@ -69,17 +75,32 @@
 						$count = count($arrays['abookfax_id']);
 						for ($i = 0; $i < $count; $i++) {
 							if ($addressbook->loadbyfaxnumid($arrays['abookfax_id'][$i])) {
-								$addressbook->save_settings(array('description' => $arrays['description'][$i], 'faxcatid' => $arrays['faxcatid'][$i],
-																'faxnumber' => $arrays['faxnumber'][$i], 'to_person' => $arrays['to_person'][$i],
-																'to_location' => $arrays['to_location'][$i], 'to_voicenumber' => $arrays['to_voicenumber'][$i]));
+								$addressbook->save_settings(array(
+                                                'description' => $arrays['description'][$i], 
+                                                'faxcatid' => $arrays['faxcatid'][$i],
+                                                'faxnumber' => $arrays['faxnumber'][$i], 
+                                                'to_person' => $arrays['to_person'][$i],
+												'to_location' => $arrays['to_location'][$i], 
+                                                'to_voicenumber' => $arrays['to_voicenumber'][$i],
+                                                'to_address' => $arrays['to_address'][$i],
+                                                'to_city' => $arrays['to_city'][$i],
+                                              ));
 							}
 						}
 						
 						// add new fax number to entry
 						if ($new_faxnum) {
 							if ($addressbook->create_faxnumid($new_faxnum)) {
-								$addressbook->save_settings(array('description' => $new_desc, 'faxcatid' => $newfaxcatid, 'to_person' => $new_to_person,
-																'to_location' => $new_to_location, 'to_voicenumber' => $new_to_voicenumber));
+								$addressbook->save_settings(
+                                    array(
+                                        'description' => $new_desc, 
+                                        'faxcatid' => $newfaxcatid, 
+                                        'to_person' => $new_to_person,
+										'to_location' => $new_to_location, 
+                                        'to_voicenumber' => $new_to_voicenumber,
+                                        'to_address' => $new_to_address,
+                                        'to_city' => $new_to_city,
+                                    ));
 							} else {
 								$error = $addressbook->get_error();
 							}
@@ -109,8 +130,15 @@
 			} elseif ($create) {
 				if ($addressbook->create($company)) {
 					if ($addressbook->create_faxnumid($new_faxnum)) {
-						$addressbook->save_settings(array('description' => $new_desc, 'faxcatid' => $newfaxcatid, 'to_person' => $new_to_person,
-														'to_location' => $new_to_location, 'to_voicenumber' => $new_to_voicenumber));
+						$addressbook->save_settings(array(
+                            'description' => $new_desc, 
+                            'faxcatid' => $newfaxcatid, 
+                            'to_person' => $new_to_person,
+							'to_location' => $new_to_location, 
+							'to_address' => $new_to_address, 
+							'to_city' => $new_to_city, 
+                            'to_voicenumber' => $new_to_voicenumber,
+                        ));
 						
 						$message = $LANG['RUBRICA_SAVED'];
 					} else {
