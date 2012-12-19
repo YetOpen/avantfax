@@ -87,6 +87,8 @@
 	</p>
 	<p><label for="to_person">{$LANG.TO_PERSON}:</label> <input type="text" name="to_person" id="to_person" value="{$fvalues.to_person}" style="width: 15em" /></p>
 	<p><label for="to_company">{$LANG.TO_COMPANY}:</label> <input type="text" name="to_company" id="to_company" value="{$fvalues.to_company}" style="width: 15em" /></p>
+	<p><label for="to_address">{$LANG.TO_ADDRESS}:</label> <input type="text" name="to_address" id="to_address" value="{$fvalues.to_address}" style="width: 15em" /></p>
+	<p><label for="to_city">{$LANG.TO_CITY}:</label> <input type="text" name="to_city" id="to_city" value="{$fvalues.to_city}" style="width: 15em" /></p>
 	<p><label for="to_location">{$LANG.TO_LOCATION}:</label> <input type="text" name="to_location" id="to_location" value="{$fvalues.to_location}" style="width: 15em" /></p>
 	<p><label for="to_voicenumber">{$LANG.TO_VOICENUMBER}:</label> <input type="text" name="to_voicenumber" id="to_voicenumber" value="{$fvalues.to_voicenumber}" style="width: 15em" /></p>
 	<p><label for="regarding">{$LANG.FAX_REGARDING}:</label> <input type="text" name="regarding" id="regarding" value="{$fvalues.regarding}" style="width: 20em" /></p>

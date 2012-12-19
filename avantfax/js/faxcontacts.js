@@ -76,6 +76,8 @@ function preFillTo (xwin, fnid) {
 	var myXHR	= new XHRObject (url, function (xmldoc) {
 		xwin.$('to_person').value		= xmldoc.getElementsByTagName('to_person')[0].firstChild.data;
 		xwin.$('to_company').value 		= xmldoc.getElementsByTagName('to_company')[0].firstChild.data;
+		xwin.$('to_address').value		= xmldoc.getElementsByTagName('to_address')[0].firstChild.data;
+		xwin.$('to_city').value		    = xmldoc.getElementsByTagName('to_city')[0].firstChild.data;
 		xwin.$('to_location').value		= xmldoc.getElementsByTagName('to_location')[0].firstChild.data;
 		xwin.$('to_voicenumber').value	= xmldoc.getElementsByTagName('to_voicenumber')[0].firstChild.data;
 	}, function (error) {}, true, 'GET', null);

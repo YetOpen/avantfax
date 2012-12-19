@@ -62,6 +62,8 @@
 	$formdata->newRule('regarding');
 	$formdata->newRule('to_person');
 	$formdata->newRule('to_company');
+	$formdata->newRule('to_address');
+	$formdata->newRule('to_city');
 	$formdata->newRule('to_location');
 	$formdata->newRule('to_voicenumber');
 	$formdata->newRule('comments');
@@ -172,6 +174,8 @@
 		$fax_data['whichcover']			= $formdata->whichcover;
 		$fax_data['notify_requeue']		= $formdata->notify_requeue;
 		$fax_data['to_person']			= escapeshellarg($formdata->to_person);
+		$fax_data['to_address']		    = escapeshellarg($formdata->to_address);
+		$fax_data['to_city']		    = escapeshellarg($formdata->to_city);
 		$fax_data['to_location']		= escapeshellarg($formdata->to_location);
 		$fax_data['to_voicenumber']		= escapeshellarg($formdata->to_voicenumber);
 		$fax_data['tsi']				= escapeshellarg(decode_entity($formdata->user_tsi));

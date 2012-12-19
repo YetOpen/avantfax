@@ -1,3 +1,6 @@
+AvantFAX 3.3.4
+- Added Address and City to addressbook (requires DB upgrade)
+
 AvantFAX 3.3.3
 - includes/avantfaxcron.php
 	- bug fixed to remove temporary files by modification time rather than access time
