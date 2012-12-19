@@ -115,7 +115,7 @@
     if (is_array($preg_matches) && !empty($preg_matches)) {
         foreach ($preg_matches[1] as $single) {
             // Merge extracted values into our values array 
-            $tmpval = array_merge ($values, array_map('trim', explode(':', $single, 2)));
+            $tmpval = array_map('trim', explode(':', $single, 2));
             $values [$tmpval[0]] = $tmpval[1];
         }
         // Strip out custom vars from comments
@@ -146,8 +146,7 @@
 		
 		// parse comments
 		if (isset($options['c'])) {
-			$tmpcmnt	= $fax_comments;
-			$ctemp		= wordwrap($tmpcmnt, $maxlen, "\n", true);
+			$ctemp		= wordwrap($fax_comments, $maxlen, "\n", true);
 			$comments	= explode("\n", $ctemp);
 		} else {
 			$comments	= array();

@@ -183,8 +183,8 @@
 		$comments						= ($formdata->comments) ? ' -c '.escapeshellarg($formdata->comments) : NULL;
         // Embed city and address into the comments field, the unique way to support both sendfax and faxcover commands
         // Will be later picked up by faxcover.php
-        if (strlen($fax_data['to_address'])) $comments .= "{to_address:".$fax_data['to_address']."}";
-        if (strlen($fax_data['to_city'])) $comments .= "{to_city:".$fax_data['to_city']."}";
+        if (strlen($fax_data['to_address'])) $comments .= "{to-address:".$fax_data['to_address']."}";
+        if (strlen($fax_data['to_city'])) $comments .= "{to-city:".$fax_data['to_city']."}";
 		$fax_data['comments']			= preg_replace("/\!/", "&#33;", $comments); // swap with it's htmlentity
 		
 		$fax_data['to_company']			= escapeshellarg($formdata->to_company);
