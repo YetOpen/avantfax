@@ -109,9 +109,21 @@
 	$values['page-count']			= (isset($options['p']))	? $options['p']	: NULL;
 	$values['pageSize']				= (isset($options['s']))	? $options['s']	: NULL;
 	$values['todays-date']			= (isset($options['D']))	? strftime($options['D']) : strftime(FAXCOVER_DATE_FORMAT);
+    // Special trick for address and city, not supported by hylafax's sendfax command
+    $fax_comments = (isset($options['c'])) ? $options['c']	: NULL;
+    preg_match_all ("/{([^}]*)}/", $fax_comments, $preg_matches);
+    if (is_array($preg_matches) && !empty($preg_matches)) {
+        foreach ($preg_matches[1] as $single) {
+            // Merge extracted values into our values array 
+            $tmpval = array_merge ($values, array_map('trim', explode(':', $single, 2)));
+            $values [$tmpval[0]] = $tmpval[1];
+        }
+        // Strip out custom vars from comments
+        $fax_comments = preg_replace("/{([^}]*)}/","",$values['comments']);
+    }
 	
 	if ($using_html_cp) {
-		$values['comments']			= (isset($options['c']))	? str_replace("\n", "<br />", $options['c'])	: NULL;
+		$values['comments']			= str_replace("\n", "<br />", $fax_comments);
 		$tpl = process_html_template($coverpage_file, COVERPAGE_MATCH, $values);
 		// output to temp file
 		$filedata = implode("\n", $tpl);
@@ -134,7 +146,7 @@
 		
 		// parse comments
 		if (isset($options['c'])) {
-			$tmpcmnt	= $options['c'];
+			$tmpcmnt	= $fax_comments;
 			$ctemp		= wordwrap($tmpcmnt, $maxlen, "\n", true);
 			$comments	= explode("\n", $ctemp);
 		} else {
