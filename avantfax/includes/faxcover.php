@@ -116,7 +116,7 @@
         foreach ($preg_matches[1] as $single) {
             // Merge extracted values into our values array 
             $tmpval = array_map('trim', explode(':', $single, 2));
-            $values [$tmpval[0]] = $tmpval[1];
+            $values [$tmpval[0]] = trim($tmpval[1],"'"); // strip out ' added by the command line
         }
         // Strip out custom vars from comments
         $fax_comments = preg_replace("/{([^}]*)}/","",$fax_comments);
