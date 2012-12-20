@@ -119,7 +119,7 @@
             $values [$tmpval[0]] = $tmpval[1];
         }
         // Strip out custom vars from comments
-        $fax_comments = preg_replace("/{([^}]*)}/","",$values['comments']);
+        $fax_comments = preg_replace("/{([^}]*)}/","",$fax_comments);
     }
 	
 	if ($using_html_cp) {
