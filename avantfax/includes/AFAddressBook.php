@@ -45,6 +45,7 @@
 		public function get_faxto()
 		public function get_to_person()
 		public function get_to_address()
+		public function get_to_zip()
 		public function get_to_city()
 		public function get_to_location()
 		public function get_to_voicenumber()
@@ -626,6 +627,17 @@ class AFAddressBook
 	public function get_to_address() {
 		if (!array_key_exists('abookfax_id', $this->fax_array)) { $this->error = "No abookfax_id loaded"; return false; }
 		return array_key_exists('to_address', $this->fax_array) ? $this->fax_array['to_address'] : NULL;
+	}
+	
+	/**
+	 * get_to_zip
+	 *
+	 * @return string
+	 * @access public
+	 */
+	public function get_to_zip() {
+		if (!array_key_exists('abookfax_id', $this->fax_array)) { $this->error = "No abookfax_id loaded"; return false; }
+		return array_key_exists('to_zip', $this->fax_array) ? $this->fax_array['to_zip'] : NULL;
 	}
 	
 	/**

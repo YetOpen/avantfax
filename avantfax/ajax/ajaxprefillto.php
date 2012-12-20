@@ -20,6 +20,7 @@
 	$to_person		= decode_xmlReady($addressbook->get_to_person());
 	$to_company		= decode_xmlReady($addressbook->get_company());
 	$to_address	    = decode_xmlReady($addressbook->get_to_address());
+	$to_zip     	= decode_xmlReady($addressbook->get_to_zip());
 	$to_city    	= decode_xmlReady($addressbook->get_to_city());
 	$to_location	= decode_xmlReady($addressbook->get_to_location());
 	$to_voice		= decode_xmlReady($addressbook->get_to_voicenumber());
@@ -31,6 +32,7 @@
 		<to_company>$to_company</to_company>
 		<to_person>$to_person</to_person>
 		<to_address>$to_address</to_address>
+		<to_zip>$to_zip</to_zip>
 		<to_city>$to_city</to_city>
 		<to_location>$to_location</to_location>
 		<to_voicenumber>$to_voice</to_voicenumber>

@@ -63,6 +63,7 @@
 	$formdata->newRule('to_person');
 	$formdata->newRule('to_company');
 	$formdata->newRule('to_address');
+	$formdata->newRule('to_zip');
 	$formdata->newRule('to_city');
 	$formdata->newRule('to_location');
 	$formdata->newRule('to_voicenumber');
@@ -175,6 +176,7 @@
 		$fax_data['notify_requeue']		= $formdata->notify_requeue;
 		$fax_data['to_person']			= escapeshellarg($formdata->to_person);
 		$fax_data['to_address']		    = escapeshellarg($formdata->to_address);
+		$fax_data['to_zip']		        = escapeshellarg($formdata->to_zip);
 		$fax_data['to_city']		    = escapeshellarg($formdata->to_city);
 		$fax_data['to_location']		= escapeshellarg($formdata->to_location);
 		$fax_data['to_voicenumber']		= escapeshellarg($formdata->to_voicenumber);
@@ -184,6 +186,7 @@
         // Embed city and address into the comments field, the unique way to support both sendfax and faxcover commands
         // Will be later picked up by faxcover.php
         if (strlen($fax_data['to_address'])) $comments .= "{to-address:".$fax_data['to_address']."}";
+        if (strlen($fax_data['to_zip'])) $comments .= "{to-zip:".$fax_data['to_zip']."}";
         if (strlen($fax_data['to_city'])) $comments .= "{to-city:".$fax_data['to_city']."}";
 		$fax_data['comments']			= preg_replace("/\!/", "&#33;", $comments); // swap with it's htmlentity
 		

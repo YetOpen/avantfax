@@ -30,6 +30,7 @@
 	$formdata->newRule('faxcatid', NULL, FR_ARRAY);	
 	$formdata->newRule('to_person', NULL, FR_ARRAY);
 	$formdata->newRule('to_address', NULL, FR_ARRAY);
+	$formdata->newRule('to_zip', NULL, FR_ARRAY);
 	$formdata->newRule('to_city', NULL, FR_ARRAY);
 	$formdata->newRule('to_location', NULL, FR_ARRAY);
 	$formdata->newRule('to_voicenumber', NULL, FR_ARRAY);
@@ -40,6 +41,7 @@
 	$formdata->newRule('newfaxcatid');
 	$formdata->newRule('new_to_person');
 	$formdata->newRule('new_to_address');
+	$formdata->newRule('new_to_zip');
 	$formdata->newRule('new_to_city');
 	$formdata->newRule('new_to_location');
 	$formdata->newRule('new_to_voicenumber');
@@ -83,6 +85,7 @@
 												'to_location' => $arrays['to_location'][$i], 
                                                 'to_voicenumber' => $arrays['to_voicenumber'][$i],
                                                 'to_address' => $arrays['to_address'][$i],
+                                                'to_zip' => $arrays['to_zip'][$i],
                                                 'to_city' => $arrays['to_city'][$i],
                                               ));
 							}
@@ -99,6 +102,7 @@
 										'to_location' => $new_to_location, 
                                         'to_voicenumber' => $new_to_voicenumber,
                                         'to_address' => $new_to_address,
+                                        'to_zip' => $new_to_zip,
                                         'to_city' => $new_to_city,
                                     ));
 							} else {
@@ -136,6 +140,7 @@
                             'to_person' => $new_to_person,
 							'to_location' => $new_to_location, 
 							'to_address' => $new_to_address, 
+							'to_zip' => $new_to_zip, 
 							'to_city' => $new_to_city, 
                             'to_voicenumber' => $new_to_voicenumber,
                         ));
