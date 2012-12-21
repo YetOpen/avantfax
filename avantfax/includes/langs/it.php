@@ -98,7 +98,7 @@ $LANG['FUPLOAD_CANT_WRITE'] = "Impossibile scrivere";
 
 $LANG['YOUR_NAME'] = "Nome";
 $LANG['UPDATE'] = "Aggiorna";
-$LANG['USER_DETAILS_SAVED'] = "I tuoi dati sono state salvati.";
+$LANG['USER_DETAILS_SAVED'] = "I tuoi dati sono stati salvati.";
 
 $LANG['LANGUAGE'] = "Lingua";
 $LANG['EMAIL_SIG'] = "Firma automatica";
