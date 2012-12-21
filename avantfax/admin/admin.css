@@ -200,6 +200,7 @@ a.forgot:hover {
 }
 
 .tableForm p {
+    clear: both;
 	margin-bottom: 0.3em;
 	margin-top: 0.4em;
 }
