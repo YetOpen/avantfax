@@ -121,6 +121,11 @@
         // Strip out custom vars from comments
         $fax_comments = preg_replace("/{([^}]*)}/","",$fax_comments);
     }
+
+    // Fix page count from local_config
+    if ($NUM_PAGES_FOLLOW && array_key_exists ('page-count',$values)) {
+        $values ['page-count'] ++;
+    }
 	
 	if ($using_html_cp) {
 		$values['comments']			= str_replace("\n", "<br />", $fax_comments);

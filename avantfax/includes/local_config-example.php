@@ -134,8 +134,7 @@
 	define('RESTRICTED_USER_MODE', false);
 	
 	// set to 1 if you want your custom cover page to show total pages in the fax instead of number pages that follow the cover page
-	// this is used ONLY when you send a fax that consists of just the cover page
-	// the default cover page displays (Number of pages to follow: 0)
+	// the default cover page displays: Number of pages to follow: 0
 	$NUM_PAGES_FOLLOW	= 0;
 
 	// Fax number lookup
