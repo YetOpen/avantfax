@@ -448,7 +448,7 @@
 	 * @return array or NULL
 	 */
 	function submit_fax(array $data) {
-		global $SENDFAX, $FAXCOVER, $TMPDIR, $NUM_PAGES_FOLLOW, $DEFAULT_TSI_ID, $INSTALLDIR;
+		global $SENDFAX, $FAXCOVER, $TMPDIR, $DEFAULT_TSI_ID, $INSTALLDIR;
 		
 		$debug = false;
 		
@@ -536,7 +536,7 @@
 			// make ps out of coverpage and send it
 			$psfile = $TMPDIR.genpasswd().".ps";
 			
-			$fcommand = "$FAXCOVER $cp_args -C '" . $INSTALLDIR . "/images/$whichcover' -p $NUM_PAGES_FOLLOW -n $first_dest > $psfile";
+			$fcommand = "$FAXCOVER $cp_args -C '" . $INSTALLDIR . "/images/$whichcover' -p 0 -n $first_dest > $psfile";
 			if ($debug) { print_r($fcommand); }
 			$o = exec($fcommand, $output, $retval);
 			
