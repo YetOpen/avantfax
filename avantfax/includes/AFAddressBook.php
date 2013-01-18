@@ -406,7 +406,7 @@ class AFAddressBook
 		$faxnumber = clean_faxnum($faxnumber);
 		
 		// check if device already exists
-		if ($results = $this->addressbookfax->find(array('faxnumber' => $faxnumber), SQL_AND, NULL, NULL, false, false /* don't reduce the array*/)) {
+		if (strlen($faxnumber) && $results = $this->addressbookfax->find(array('faxnumber' => $faxnumber), SQL_AND, NULL, NULL, false, false /* don't reduce the array*/)) {
 			if (is_array($results)) {
 				$num = count($results);
 				// if the find method returns an array, each row of results must be a separate array
