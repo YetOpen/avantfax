@@ -143,6 +143,7 @@
 				$user->from_location	= $from_location;
 				$user->from_voicenumber	= $from_voicenumber;
 				$user->from_faxnumber	= $from_faxnumber;
+				$user->user_tsi	        = $user_tsi;
 				$user->pwd_reuse		= isset($pwd_reuse) ? $pwd_reuse : 0;
 
 				$user->faxperpageinbox		= $faxperpageinbox;
