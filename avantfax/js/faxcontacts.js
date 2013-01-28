@@ -74,12 +74,10 @@ function addSingleContact() {
 function preFillTo (xwin, fnid) {
 	var url		= 'ajax/ajaxprefillto.php?fnid=' + fnid;
 	var myXHR	= new XHRObject (url, function (xmldoc) {
-		xwin.$('to_person').value		= xmldoc.getElementsByTagName('to_person')[0].firstChild.data;
-		xwin.$('to_company').value 		= xmldoc.getElementsByTagName('to_company')[0].firstChild.data;
-		xwin.$('to_address').value		= xmldoc.getElementsByTagName('to_address')[0].firstChild.data;
-		xwin.$('to_zip').value		    = xmldoc.getElementsByTagName('to_zip')[0].firstChild.data;
-		xwin.$('to_city').value		    = xmldoc.getElementsByTagName('to_city')[0].firstChild.data;
-		xwin.$('to_location').value		= xmldoc.getElementsByTagName('to_location')[0].firstChild.data;
-		xwin.$('to_voicenumber').value	= xmldoc.getElementsByTagName('to_voicenumber')[0].firstChild.data;
+        elem = ["to_person","to_company","to_address","to_zip","to_city","to_location","to_voicenumber"];
+        for (i in elem) {
+            if (xmldoc.getElementsByTagName(elem[i])[0].firstChild != undefined)
+		        xwin.$(elem[i]).value		= xmldoc.getElementsByTagName(elem[i])[0].firstChild.data;
+        }
 	}, function (error) {}, true, 'GET', null);
 }
