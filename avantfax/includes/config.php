@@ -12,6 +12,7 @@
 
 	error_reporting(E_ALL);
 	ini_set('magic_quotes_runtime', false);
+    setlocale(LC_CTYPE, "it_IT.UTF-8");
 	
 	if (ini_get('register_globals')) {
 		exit("Error: register_globals must be set to Off in /etc/php.ini");
