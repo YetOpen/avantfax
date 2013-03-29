@@ -34,6 +34,12 @@
 			{html_options name="coverpage_id" id="coverpage_id" selected=$fvalues.coverpage_id options=$cover_list}
 		</div>
 	</p>
+    <br />
+	<p><label for="audiofile_id">{$LANG.SELECT_AUDIO}:</label>
+		<div class="tableFormRight" style="float:left; position:relative">
+			{html_options name="audiofile" id="audiofile_id" selected=$fvalues.audiofile options=$audio_list}
+		</div>
+	</p>
 	<br /><br />
 	<p><label for="faxperpageinbox" style="padding-top:5px">{$LANG.INBOX_SHOW}</label>
 		<div class="tableFormRight" style="float:left; position:relative">

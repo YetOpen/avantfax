@@ -34,6 +34,16 @@
 			}
 		}
 	}
+
+    // List available audio files
+    $audio_list = array ('');
+    $audiodir = "../includes/audio";
+    if (is_dir ($audiodir)) {
+        foreach (glob ($audiodir."/{*.ogg,*.wav,*.mp3}",GLOB_BRACE) as $audiofile) {
+            $fn = basename($audiofile);
+            $audio_list [$fn] = $fn;
+        }
+    }
 	
 	/******************************************************************************************************************************
 			SETUP FORM RULES
@@ -45,6 +55,7 @@
 	$formdata->newRule('email',					NULL, FR_STRING, 0, 0, $LANG['REGWARN_MAIL'], true);
 	$formdata->newRule('email_sig');
 	$formdata->newRule('coverpage_id');
+	$formdata->newRule('audiofile');
 	$formdata->newRule('from_company',			$FROM_COMPANY);
 	$formdata->newRule('from_location',			$FROM_LOCATION);
 	$formdata->newRule('from_voicenumber',		$FROM_VOICENUMBER);
@@ -114,6 +125,7 @@
 				$user->acc_enabled	= $acc_enabled;
 				$user->is_admin		= $is_admin;
 				$user->coverpage_id	= $coverpage_id;
+				$user->audiofile	= $audiofile;
 				$pexpires			= $user->pwdexpire;
 				
 				if ($user->pwdcycle != $pwdcycle) { // update new expire date
@@ -250,6 +262,7 @@
 	$asmarty->assign('routes',				$routenames);
 	$asmarty->assign('modemdevs',			$modemdevs);
 	$asmarty->assign('cover_list',			$cover_list);
+	$asmarty->assign('audio_list',			$audio_list);
 	$asmarty->assign('modems',				$modems);
 	$asmarty->assign('cycles',				$cycles);
 	$asmarty->assign('error',				$error);

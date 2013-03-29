@@ -365,6 +365,8 @@ $LANG['COVER_FILE'] = "Nome file";
 $LANG['COVER_TITLE'] = "Nome Cover";
 $LANG['SELECT_COVERPAGE'] = "Seleziona una cover";
 
+$LANG['SELECT_AUDIO'] = "Seleziona un file audio";
+
 $LANG['MISSING_CATEGORY_NAME'] = "Devi inserire un nome categoria";
 $LANG['MISSING_DEVICE_NAME'] = "Devi inserire un nome dispositivo";
 $LANG['MISSING_ALIAS_NAME'] = "Devi inserire un'alias";

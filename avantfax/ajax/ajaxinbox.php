@@ -21,5 +21,10 @@
 	$faxcats		= ($_SESSION[USERSESSION]->superuser) ? NULL						: $_SESSION[USERSESSION]->get_faxcats();
 	
 	$faxcount		= ($ENABLE_DID_ROUTING) ? $inbox->get_num_faxes($routes, $faxcats)	: $inbox->get_num_faxes($modems, $faxcats);
-	
+
+    // Check if an audio file for the user has been choosen, in case append it to the returned count
+    $audio = basename($_SESSION[USERSESSION]->audiofile);
+    if (file_exists ("../includes/audio/$audio"))
+        $faxcount .= "|$audio";
+
 	echo $faxcount;

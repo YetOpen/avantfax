@@ -364,16 +364,32 @@ function performInboxCheck () {
 	var reqURL	= 'ajax/ajaxinbox.php';
 	var url		= reqURL + '?randid=' + Math.random();
 	var myXHR	= new XHRObject (url, function (htmlData) {
+        // Strip out eventually added audio file 
+        var tmp = htmlData.split("|");
+        var newCount = tmp[0];
+        var audio = tmp[1];
+        var reload = true;
+
 		// process data
-		if (htmlData != currentInboxCnt) {
-			if (htmlData > currentInboxCnt && InboxTakeFocus) {
+		if (newCount != currentInboxCnt) {
+			if (newCount > currentInboxCnt && InboxTakeFocus) {
 				window.focus ();
 			}
 			
-			if (htmlData > currentInboxCnt && InboxDoPopupNewFax) {
-				alert ('New FAX');
+			if (newCount > currentInboxCnt && InboxDoPopupNewFax) {
+                if (typeof audio == "string") { // Try playing audio file
+                    reload = false;
+                    var beep = new Audio('includes/audio/'+basename(audio));
+                    beep.onended = function () { 
+                        alert ("New FAX");
+                        window.location.reload();
+                    }
+                    beep.play();
+                } else
+				    alert ('New FAX');
 			}
-			window.location.reload();
+            if (reload)
+    			window.location.reload();
 		}
 	}, function (error) {}, false, 'GET', null); // (url, onReady, onError, wantXML, rmethod, sendData)
 	
@@ -405,6 +421,15 @@ function addLoadEvent (func) {
  */
 function gotoInbox () {
 	window.location.href = "inbox.php";	
+}
+
+/**
+ * basename : same as php's basename
+ *
+ * @return string file basename
+ */
+function basename(path) {
+    return path.replace(/\\/g,'/').replace( /.*\//, '' );
 }
 
 
