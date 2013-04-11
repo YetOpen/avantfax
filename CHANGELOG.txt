@@ -1,3 +1,6 @@
+AvantFAX 3.3.5
+- Added ability to play a sound (requires DB upgrade)
+
 AvantFAX 3.3.4
 - Added Address and City to addressbook (requires DB upgrade)
 
